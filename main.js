@@ -9,17 +9,17 @@ var pineTree = {
 };
 
 
-//get user imput from DOM for tree height and character
+//get user imput from DOM for tree height, character, & submit
 var height = document.getElementById('height');
 var character = document.getElementById('character');
-
-
-
 var grow = document.getElementById('grow');
+
+//Add event listeners to DOM elements
 grow.addEventListener('click', checkInput);
 height.addEventListener('keypress', pressed);
 character.addEventListener('keypress', pressed);
 
+//function to run the tree maker when enter is pressed in either input field
 function pressed(event) {
     console.log(event);
     if (event.keyCode === 13) {
@@ -28,6 +28,9 @@ function pressed(event) {
     }
 };
 
+
+// function to run the tree maker when submit is pressed. Also checks to make sure user has filled
+// out input fields
 function checkInput() {
     if (height.value === "") {
         alert('Please enter a number value');
@@ -43,6 +46,7 @@ function checkInput() {
 // console.log("height", pineTree.height);
 // console.log("character", pineTree.character);
 
+//main function to create tree using spaces and user input values
 function treeMaker(pineTree){
     console.log("", pineTree);
     pineTree.height = height.value;
